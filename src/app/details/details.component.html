@@ -1,0 +1,38 @@
+<div class="row">
+    <div>
+        <button class="btn btn-info float-end mt-2"><a routerLink="/addData">Add Resume <i class="bi bi-plus-lg"></i></a></button>
+    </div>
+    <!-- <router-outlet></router-outlet> -->
+    <div class="col-md-12">
+        <table class="table table-light table-striped mt-3">
+            <thead>
+                <tr *ngIf="dataList.length">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>LinkedIn ID</th>
+                    <th>Qualification</th>
+                    <th>College</th>
+                    <th>Passing Scores</th>
+                    <th colspan="3" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of dataList">
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.number}}</td>
+                    <td>{{user.profile}}</td>
+                    <td>{{user.degree}}</td>
+                    <td>{{user.college}}</td>
+                    <td>{{user.marks}}</td>
+                    <td ><i class="bi bi-eye" (click)="onView(user)"></i></td>
+                    <td><i class="bi bi-pencil" (click)="onEdit(user)"></i></td>
+                    <td><i class="bi bi-trash3" (click)="onDelete(user)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<form class="row ms-5 me-5" [formGroup]="cvForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName"
+        [class.is-invalid]="cvForm.controls.firstName.touched && cvForm.controls.firstName.errors?.['required']">
+        <span class="text-danger" *ngIf="cvForm.controls.firstName.touched && cvForm.controls.firstName.errors?.['required']">Please enter First Name</span>
+    </div>
+    <div class="col-md-6">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName"
+        [class.is-invalid]="cvForm.controls.lastName.touched && cvForm.controls.lastName.errors?.['required']">
+        <span class="text-danger" *ngIf="cvForm.controls.lastName.touched && cvForm.controls.lastName.errors?.['required']">Please enter Last Name</span>
+    </div>
+    <div class="col-md-12">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email"
+        [class.is-invalid]="cvForm.controls.email.touched && cvForm.controls.email.invalid">
+        <span class="text-danger" 
+        *ngIf="cvForm.controls.email.touched && cvForm.controls.email.invalid">Please enter a valid email
+        </span>
+      </div>
+      <div class="col-md-6">
+        <label for="number" class="form-label">Phone number</label>
+        <input type="number" class="form-control" id="number" formControlName="number"
+        [class.is-invalid]="cvForm.controls.number.touched && cvForm.controls.number.invalid ">
+        <span class="text-danger" 
+        *ngIf="cvForm.controls.number.touched && cvForm.controls.number.invalid ">Please enter a valid Phone number
+        </span>
+      </div>
+      <div class="col-md-6">
+        <label for="profile" class="form-label">Linked In ID</label>
+        <input type="url" class="form-control" id="profile" formControlName="profile">
+      </div>
+      <div class="col-md-4">
+        <label for="degree" class="form-label">Highest Qualification</label>
+        <input type="text" class="form-control" id="degree" formControlName="degree"
+        [class.is-invalid]="cvForm.controls.degree.touched && cvForm.controls.degree.errors?.['required']">
+        <span class="text-danger" *ngIf="cvForm.controls.degree.touched && cvForm.controls.degree.errors?.['required']">Please enter Highest Qualification</span>
+      </div>
+      <div class="col-md-4">
+        <label for="college" class="form-label">College</label>
+        <input type="text" class="form-control" id="college"formControlName="college"
+        [class.is-invalid]="cvForm.controls.college.touched && cvForm.controls.college.errors?.['required']">
+        <span class="text-danger" *ngIf="cvForm.controls.college.touched && cvForm.controls.college.errors?.['required']">Please share College Name</span>
+      </div>
+      <div class="col-md-4">
+        <label for="marks" class="form-label">Overall Percentage</label>
+        <input type="number" class="form-control" id="marks"formControlName="marks"
+        [class.is-invalid]="cvForm.controls.marks.touched && cvForm.controls.marks.invalid">
+        <span class="text-danger" *ngIf="cvForm.controls.marks.touched && cvForm.controls.marks.invalid">Please enter Valid Passing scores(Percentage)</span>
+      </div>
+      <div class="col-12 mt-3" *ngIf="editable">
+        <button type="submit" class="btn btn-primary" [disabled]="!cvForm.dirty && cvForm.invalid">Save</button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="!editable">
+        <button type="submit" class="btn btn-primary" (click)="onPrint()">Print</button>
+      </div>
+</form>
