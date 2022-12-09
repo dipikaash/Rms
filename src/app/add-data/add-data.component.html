@@ -50,7 +50,7 @@
         <span class="text-danger" *ngIf="cvForm.controls.marks.touched && cvForm.controls.marks.invalid">Please enter Valid Passing scores(Percentage)</span>
       </div>
       <div class="col-12 mt-3" *ngIf="editable">
-        <button type="submit" class="btn btn-primary" [disabled]="!cvForm.dirty && cvForm.invalid">Save</button>
+        <button type="submit" class="btn btn-primary" [disabled]="cvForm.invalid">Save</button>
       </div>
       <div class="col-12 mt-3" *ngIf="!editable">
         <button type="submit" class="btn btn-primary" (click)="onPrint()">Print</button>
